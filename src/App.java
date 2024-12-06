@@ -1,4 +1,6 @@
 import Models.Pantalla;
+import materia.Queues.Queue;
+import materia.Queues.QueueGeneric;
 import materia.Stacks.Stack;
 import materia.Stacks.StackGeneric;
 
@@ -6,7 +8,9 @@ public class App {
     public static void main(String[] args) throws Exception {
         // Ejecutar ejemplos de Stack y StackGeneric
         // runStack();
-        runStackGeneric();
+        // runStackGeneric();
+        // runQueue();
+        runQueueGeneric();
     }
 
     public static void runStack() {
@@ -54,5 +58,45 @@ public class App {
         System.out.println("Pantallas = " + router.getSize());
         System.out.println("Estoy en: " + router.peek().getRuta());
         router.printStack();
+    }
+
+    public static void runQueue() {
+        Queue cola = new Queue();
+        cola.enqueue(10);
+        cola.enqueue(20);
+        cola.enqueue(30);
+        cola.enqueue(40);
+
+        System.out.println(cola.peek());
+        System.out.println(cola.dequeue());
+        System.out.println(cola.dequeue());
+        System.out.println(cola.peek());
+    }
+
+    public static void runQueueGeneric() {
+        QueueGeneric<Pantalla> queue = new QueueGeneric<>();
+
+        // Agregar elementos a la cola
+        queue.enqueue(new Pantalla(1, "Pantalla Inicio", "/inicio"));
+        queue.enqueue(new Pantalla(2, "Pantalla Configuración", "/config"));
+        queue.enqueue(new Pantalla(3, "Pantalla Ayuda", "/ayuda"));
+
+        // Imprimir los elementos de la cola
+        System.out.println("Contenido inicial de la cola:");
+        queue.printQueue();
+
+        // Obtener el tamaño de la cola
+        System.out.println("Tamaño de la cola: " + queue.size());
+
+        // Realizar operaciones de dequeue y mostrar resultados
+        System.out.println("Retirando elemento: " + queue.dequeue());
+        System.out.println("Retirando elemento: " + queue.dequeue());
+
+        // Imprimir los elementos restantes de la cola
+        System.out.println("Contenido de la cola después de retirar elementos:");
+        queue.printQueue();
+
+        // Tamaño final de la cola
+        System.out.println("Tamaño final de la cola: " + queue.size());
     }
 }
