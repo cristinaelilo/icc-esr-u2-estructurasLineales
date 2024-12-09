@@ -1,3 +1,4 @@
+import Controller.MenuController;
 import Models.Pantalla;
 import materia.Queues.Queue;
 import materia.Queues.QueueGeneric;
@@ -10,7 +11,14 @@ public class App {
         // runStack();
         // runStackGeneric();
         // runQueue();
-        runQueueGeneric();
+        //runQueueGeneric();
+        runContactManager();
+    }
+
+    public static void runContactManager() {
+        MenuController menuController = new MenuController();
+        menuController.showMenu();
+        
     }
 
     public static void runStack() {
