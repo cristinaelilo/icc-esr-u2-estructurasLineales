@@ -23,11 +23,11 @@ public class LinkedList<T> {
             return;
         }
         NodeGeneric<T> current = head;
-        while (current != null) {
+        while (current.getNext() != null) {
             System.out.print(current.getValue() + " -> ");
             current = current.getNext();
         }
-        System.out.println("END");
+        System.out.println(current.getValue() + " -> END");
     }
 
     public NodeGeneric<T> getHead() {
