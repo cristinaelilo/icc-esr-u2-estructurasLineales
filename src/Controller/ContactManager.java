@@ -30,7 +30,7 @@ public class ContactManager {
                 return current.getValue();
             }
             current = current.getNext();  //Porque siempre pregunta por el mismo y no por el siguiente
-            System.out.println(current);
+            //System.out.println(current);
             System.out.println(current.getNext());
         } 
         return null; //No se encontro 
