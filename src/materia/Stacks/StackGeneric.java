@@ -58,10 +58,27 @@ public class StackGeneric<T> {
     }
 
     public void printStack() {
+        if (isEmpty()) {
+            System.out.println("Pila vacía.");
+            return;
+        }
+    
         NodeGeneric<T> current = top; // Comenzar desde el tope
+        StringBuilder result = new StringBuilder();
+        
+        result.append("(tope) ");  // Agregar "(tope)" al inicio
+    
+        // Recorrer los elementos de la pila y agregarlos a la cadena
         while (current != null) {
-            System.out.println(current.getValue());
+            result.append(current.getValue());
+            if (current.getNext() != null) {
+                result.append("->"); // Agregar "->" entre los elementos
+            }
             current = current.getNext();
         }
+    
+        System.out.println(result.toString()); // Imprimir la pila con el formato deseado
     }
+    
+    
 }

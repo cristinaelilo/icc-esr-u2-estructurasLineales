@@ -1,5 +1,8 @@
 import Controller.MenuController;
+import Ejercicio_01_sign.SignValidator;
+import Ejercicio_02_sorting.StackSorter;
 import Models.Pantalla;
+import java.util.Scanner;
 import materia.Queues.Queue;
 import materia.Queues.QueueGeneric;
 import materia.Stacks.Stack;
@@ -12,15 +15,62 @@ public class App {
         // runStackGeneric();
         // runQueue();
         //runQueueGeneric();
-        runContactManager();
+        //runContactManager();
+        runSignValidator(); //Para validar signos
+        runSortStackExample();   // Para ordenar un Stack
     }
 
+    // Ejercicio de validación de signos
+    public static void runSignValidator() {
+        Scanner scanner = new Scanner(System.in);
+        boolean continuar = true;
+
+        while (continuar) {
+            System.out.println("Ingrese una cadena de signos para validar: ");
+            String input = scanner.nextLine();
+
+            if (SignValidator.esValido(input)) {
+                System.out.println("La cadena es válida.");
+            } else {
+                System.out.println("La cadena no es válida.");
+            }
+
+            System.out.println("¿Desea ingresar otra cadena? (si/no): ");
+            String respuesta = scanner.nextLine().trim().toLowerCase();
+            if (!respuesta.equals("si")) {
+                continuar = false;
+                System.out.println("¡Gracias por usar el validador de signos!");
+            }
+        }
+
+        scanner.close(); // Cerramos el recurso adecuadamente
+    }
+
+    // Ejercicio de ordenar un Stack
+    public static void runSortStackExample() {
+        StackGeneric<Integer> stack = new StackGeneric<>();
+        stack.push(5);
+        stack.push(1);
+        stack.push(4);
+        stack.push(2);
+
+        System.out.println("Stack antes de ordenar:");
+        stack.printStack();
+
+        StackSorter sorter = new StackSorter();
+        sorter.sortStack(stack);
+
+        System.out.println("Stack después de ordenar:");
+        stack.printStack();
+    }
+
+    // Método para mostrar el menú de contactos
     public static void runContactManager() {
         MenuController menuController = new MenuController();
         menuController.showMenu();
-        
     }
 
+    // Ejemplo de operaciones con un Stack
     public static void runStack() {
         Stack stack = new Stack();
 
@@ -45,11 +95,11 @@ public class App {
         System.out.println("Nueva cima -> " + stack.peek());
 
         // Mostrar el estado de la pila después de las operaciones
-        System.out.println();
         stack.printStack();
         System.out.println("Tamaño final de la pila: " + stack.getSize());
     }
 
+    // Ejemplo de operaciones con un Stack genérico
     public static void runStackGeneric() {
         StackGeneric<Pantalla> router = new StackGeneric<>();
 
@@ -68,6 +118,7 @@ public class App {
         router.printStack();
     }
 
+    // Ejemplo de operaciones con una cola
     public static void runQueue() {
         Queue cola = new Queue();
         cola.enqueue(10);
@@ -81,6 +132,7 @@ public class App {
         System.out.println(cola.peek());
     }
 
+    // Ejemplo de operaciones con una cola genérica
     public static void runQueueGeneric() {
         QueueGeneric<Pantalla> queue = new QueueGeneric<>();
 

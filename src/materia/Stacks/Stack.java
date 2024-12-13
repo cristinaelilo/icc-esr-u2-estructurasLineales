@@ -3,6 +3,7 @@ package materia.Stacks;
 import java.util.EmptyStackException;
 import materia.models.Node;
 
+
 public class Stack {
     private Node top; // Nodo en la cima de nuestra pila
     private int size; 
