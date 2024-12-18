@@ -24,19 +24,11 @@ Este proyecto contiene dos ejercicios importantes:
 El programa valida si una cadena de caracteres con los signos `()`, `{}`, `[]` está correctamente balanceada.
 
 #### Funcionamiento:
-1. El usuario ingresa una cadena de signos, por ejemplo: `([]){}`.
+1. Se ingresa una cadena de signos, por ejemplo: `([]){}`.
 2. El algoritmo determina si la cadena está balanceada y en el orden correcto.
-3. Si la cadena es válida, se muestra el mensaje: "La cadena es válida."
-4. Si no lo es, se muestra el mensaje: "La cadena no es válida."
-
-### Ejercicio 2: Ordenación de un Stack
-
-Este ejercicio implementa un algoritmo que ordena un Stack de enteros, donde el elemento más pequeño se coloca en la parte superior del Stack. Para ello, se utiliza otro Stack auxiliar.
-
-#### Funcionamiento:
-1. Se toma un Stack de enteros con elementos desordenados.
-2. El algoritmo ordena los elementos utilizando otro Stack auxiliar.
-3. El Stack resultante tiene los elementos ordenados de menor a mayor, con el menor en la parte superior.
+3. Si la cadena es válida, se muestra: "Output: True."
+4. Si no lo es, se muestra: "Output: false."
+5. En este caso como nuestro ejemplo es: `([]){}`, se mostrará "Output: True."
 
 ### Ejercicio 2: Ordenación de un Stack
 

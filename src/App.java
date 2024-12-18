@@ -2,7 +2,6 @@ import Controller.MenuController;
 import Ejercicio_01_sign.SignValidator;
 import Ejercicio_02_sorting.StackSorter;
 import Models.Pantalla;
-import java.util.Scanner;
 import materia.Queues.Queue;
 import materia.Queues.QueueGeneric;
 import materia.Stacks.Stack;
@@ -22,45 +21,34 @@ public class App {
 
     // Ejercicio de validación de signos
     public static void runSignValidator() {
-        Scanner scanner = new Scanner(System.in);
-        boolean continuar = true;
+        System.out.println("\n--- Validación de Signos ---");
+        String[] ejemplos = {
+            "([]){}", // Ejemplo 1: Debería ser válido (true)
+            "({)}"    // Ejemplo 2: No es válido (false)
+        };
 
-        while (continuar) {
-            System.out.println("Ingrese una cadena de signos para validar: ");
-            String input = scanner.nextLine();
-
-            if (SignValidator.esValido(input)) {
-                System.out.println("La cadena es válida.");
-            } else {
-                System.out.println("La cadena no es válida.");
-            }
-
-            System.out.println("¿Desea ingresar otra cadena? (si/no): ");
-            String respuesta = scanner.nextLine().trim().toLowerCase();
-            if (!respuesta.equals("si")) {
-                continuar = false;
-                System.out.println("¡Gracias por usar el validador de signos!");
-            }
+        for (int i = 0; i < ejemplos.length; i++) {
+            String input = ejemplos[i];
+            boolean resultado = SignValidator.esValido(input);
+            System.out.println("Input: \"" + input + "\"\nOutput: " + resultado);
         }
-
-        scanner.close(); // Cerramos el recurso adecuadamente
     }
 
     // Ejercicio de ordenar un Stack
     public static void runSortStackExample() {
         StackGeneric<Integer> stack = new StackGeneric<>();
-        stack.push(5);
-        stack.push(1);
-        stack.push(4);
         stack.push(2);
+        stack.push(4);
+        stack.push(1);
+        stack.push(5);
 
-        System.out.println("Stack antes de ordenar:");
+        System.out.println("\nStack antes de ordenar:");
         stack.printStack();
 
         StackSorter sorter = new StackSorter();
         sorter.sortStack(stack);
 
-        System.out.println("Stack después de ordenar:");
+        System.out.println("\nStack después de ordenar:");
         stack.printStack();
     }
 
